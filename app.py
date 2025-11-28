@@ -53,6 +53,7 @@ def get_best_batsman(delivery_df, top_n=10):
     """Calculates the top N batsmen by total runs."""
     batsman_runs = delivery_df.groupby('batsman')['batsman_runs'].sum().reset_index()
     top_batsmen = batsman_runs.sort_values(by='batsman_runs', ascending=False).head(top_n)
+    
     return top_batsmen
 
 def plot_batsman_runs(df):
@@ -62,7 +63,7 @@ def plot_batsman_runs(df):
     fig, ax = plt.subplots(figsize=(10, 6))
     
     # Custom colors for a better dark-mode visual
-    bars = ax.bar(df['batsman'], df['batsman_runs'], color='#FF4B4B', edgecolor='white') 
+    bars = ax.bar(df['batsman'], df['batsman_runs'], color="#FFE100", edgecolor='white') 
     
     ax.set_title(f'Top {len(df)} Batsmen by Total Runs', color='white', fontsize=16)
     ax.set_xlabel('Batsman', color='white')
@@ -94,7 +95,7 @@ def plot_bowler_wickets(df):
     fig, ax = plt.subplots(figsize=(10, 6))
     
     # Custom colors
-    bars = ax.bar(df['bowler'], df['Wickets Taken'], color='#00FFFF', edgecolor='white') # Cyan for bowlers
+    bars = ax.bar(df['bowler'], df['Wickets Taken'], color="#FF0000", edgecolor='white') # Cyan for bowlers
     
     ax.set_title(f'Top {len(df)} Bowlers by Total Wickets', color='white', fontsize=16)
     ax.set_xlabel('Bowler', color='white')
